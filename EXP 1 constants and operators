@@ -1,0 +1,49 @@
+#include<stdio.h>
+#include<string.h>
+#include<ctype.h>
+int main()
+{
+ int n,i,oc=0,idc=0,cc=0,j,k,l,m;
+ char e[100],o[50],id[50],c[50];
+ printf("Enter the Expression: ");
+ scanf("%[^\n]s",&e);
+ n=strlen(e);
+ for(i=0;i<n;i++)
+ {
+  if(isalpha(e[i]))
+  {
+   id[idc]=e[i];
+   idc++;
+  }
+  else if(isdigit(e[i]))
+  {
+   m=(e[i]-'0');
+   i=i+1;
+   while(isdigit(e[i]))
+   {
+    m=m*10+(e[i]-'0');
+    i++;
+   }
+   i=i-1;
+   c[cc]=m;
+   cc++;
+  }
+  else
+  {
+   o[oc]=e[i];
+   oc++;
+  }
+ }
+ for(j=0;j<idc;j++)
+ {
+  printf("%c is an Identifier\n",id[j]);
+ }
+ for(k=0;k<cc;k++)
+ {
+  printf("%d is a Constants\n",c[k]);
+ }
+ for(l=0;l<oc;l++)
+ {
+  printf("%c is an Operator\n",o[l]);
+ }
+}
